@@ -6,19 +6,19 @@ This guide provides step-by-step instructions on how to deploy the PunBot 9000 a
 
 Before you begin, make sure you have the following:
 
-1.  A completed and working project in **Google AI Studio**.
+1.  A completed and working project in **Google AI Studio** (or on your local machine).
 2.  A **[GitHub](https://github.com/)** account.
 3.  A **[Vercel](https://vercel.com/)** account (you can sign up for free using your GitHub account).
 4.  Your **Google Gemini API Key**.
 
 ---
 
-## Step 1: Export Your Project from Google AI Studio
+## Step 1: Export Your Project (If Starting from AI Studio)
 
-First, you need to get your project code out of AI Studio.
+If your code is in AI Studio, you need to get it onto your local machine first.
 
 1.  In your AI Studio project, find and click the **"Download code"** button. This will download your entire project as a `.zip` file.
-2.  Unzip the downloaded file on your local machine. You should now have a folder containing `index.html`, `index.tsx`, and all other project files.
+2.  Unzip the downloaded file on your local machine. You should now have a folder containing `package.json`, `index.html`, a `src` folder, and all other project files.
 
 ## Step 2: Create a GitHub Repository
 
@@ -28,7 +28,7 @@ Next, you'll host your code on GitHub, which will allow Vercel to access and dep
 2.  Give it a name (e.g., `punbot-9000`) and feel free to leave it as a Public repository.
 3.  **Do not** initialize it with a README, .gitignore, or license. You already have these files.
 4.  Once the repository is created, GitHub will show you commands to "push an existing repository from the command line." Keep this page open.
-5.  Open a terminal or command prompt and navigate into the project folder you unzipped in Step 1.
+5.  Open a terminal or command prompt and navigate into the project folder from Step 1.
 6.  Run the following commands, replacing the repository URL with your own:
 
     ```bash
@@ -59,16 +59,13 @@ This is the final step to bring your project to life!
 1.  Log in to your [Vercel](https://vercel.com/) dashboard.
 2.  Click **"Add New..."** and select **"Project"**.
 3.  On the "Import Git Repository" screen, find and **Import** the GitHub repository you just created.
-4.  Vercel will try to detect your project's framework. Since this is a static project without a build step, we need to configure it correctly:
-    -   **Framework Preset**: Select **"Other"**.
-    -   **Build Command**: Leave this **EMPTY**.
-    -   **Output Directory**: Leave this as the default.
+4.  Vercel will detect that you are using **Vite** and configure the project settings automatically. You shouldn't need to change the Build Command (`npm run build`) or Output Directory (`dist`).
 5.  Next, expand the **"Environment Variables"** section. This is the most important part for connecting to the Gemini API.
     -   Add a new variable:
-        -   **Name**: `API_KEY`
+        -   **Name**: `VITE_API_KEY` (Note the `VITE_` prefix, this is important!)
         -   **Value**: Paste your **Google Gemini API Key** here.
 6.  Click the **"Deploy"** button.
 
-Vercel will now deploy your static site. The process should be very quick. Once it's finished, you'll be presented with a URL where your PunBot 9000 is now live for the world to see!
+Vercel will now install dependencies, build your project, and deploy the resulting static site. Once it's finished, you'll be presented with a URL where your PunBot 9000 is now live for the world to see!
 
 Congratulations, you've successfully deployed your AI-powered application! 🎉

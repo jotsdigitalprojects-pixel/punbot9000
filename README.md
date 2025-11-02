@@ -19,32 +19,43 @@ PunBot 9000 is a simple, beautifully designed single-page application whose sole
 
 This project is built with a modern, efficient, and scalable frontend stack:
 
+-   **[Vite](https://vitejs.dev/)**: A next-generation frontend tooling for fast development and optimized builds.
 -   **[React](https://reactjs.org/)**: A JavaScript library for building user interfaces.
 -   **[TypeScript](https://www.typescriptlang.org/)**: A statically typed superset of JavaScript that enhances developer productivity.
--   **[Tailwind CSS](https://tailwindcss.com/)**: A utility-first CSS framework for rapid UI development.
+-   **[Tailwind CSS](https://tailwindcss.com/)**: A utility-first CSS framework for rapid UI development (via CDN).
 -   **[@google/genai](https://www.npmjs.com/package/@google/genai)**: The official SDK for interacting with the Google Gemini API.
 
 ## 🚀 Getting Started
 
-This project is designed to be run in an environment that supports ES modules directly in the browser, like Google AI Studio or a simple static server.
+To get a local copy up and running, follow these simple steps.
 
 ### Prerequisites
 
+-   [Node.js](https://nodejs.org/en/) (which includes npm) installed on your machine.
 -   A Google Gemini API Key. You can get one from the [Google AI Studio](https://aistudio.google.com/app/apikey).
 
-### Running the Project
+### Installation & Local Development
 
 1.  **Clone the repository:**
     ```sh
     git clone https://github.com/your-username/punbot-9000.git
+    cd punbot-9000
     ```
-2.  **API Key Setup:** This application is configured to use an environment variable `process.env.API_KEY`. When deploying or running in a development environment, you must provide this key. In Google AI Studio, this is managed for you. For other environments, you may need to configure this variable.
-
-3.  **Serve the files:** You can use a simple static file server to run this project locally. For example, using `serve`:
+2.  **Install NPM packages:**
     ```sh
-    npx serve .
+    npm install
     ```
-    Then, open your browser to the provided local address.
+3.  **API Key Setup:** Create a new file named `.env` in the root of your project folder and add your API key to it like this:
+    ```
+    VITE_API_KEY=YOUR_GEMINI_API_KEY_HERE
+    ```
+    The `.gitignore` file is already configured to prevent this file from being committed to GitHub.
+
+4.  **Run the development server:**
+    ```sh
+    npm run dev
+    ```
+    Open your browser and navigate to the local URL provided (usually `http://localhost:5173`).
 
 ## 🚢 Deployment
 
